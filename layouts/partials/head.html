@@ -34,6 +34,8 @@
     <meta property="twitter:url" content="{{ .Permalink }}">
     <meta name="twitter:image" content="{{ absURL $image }}">
 
+    <link rel="icon" href="/favicon-32x32.png" type="image/x-icon">
+
     <!-- SEO canonicals: helps Google understand your site better when using marketing campaign tagging etc -->
     <link rel="canonical" href="{{ .Permalink }}">
 
@@ -48,6 +50,8 @@
 
     {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint "sha256" }}
     <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}"></script>
+
+
 
     <!-- Option for user to inject custom html -->
     {{ if .Site.Params.CustomHeadHTML }}
